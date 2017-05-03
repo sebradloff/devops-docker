@@ -10,6 +10,8 @@ describe "Dockerfile" do
       end
     end
 
+    @image.tag('repo' => 'devops-fat-test', 'tag' => 'latest', force: true)
+
     set :os, family: :alpine
     set :backend, :docker
     set :docker_image, @image.id
