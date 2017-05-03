@@ -17,11 +17,10 @@ describe "Dockerfile" do
     set :docker_image, @image.id
   end
 
-  describe command('ruby -v') do
-   it "ruby version" do
-     expect(subject.stdout).to contain("ruby 2.3.3")
-   end
- end
+  it "should have ruby 2.3.3" do
+    output = command('ruby -v')
+    expect(output.stdout).to contain("ruby 2.3.3")
+  end
 
  it "should have java 1.8" do
    output = command('java -version')
